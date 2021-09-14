@@ -69,7 +69,7 @@ function draw() {
         fruitGroup.setVelocityXEach(0);
         monsterGroup.setVelocityXEach(0);
         
-        // Change the animation of sword to gameover and reset its position
+        //Cambiar la animación del cuchillo para el fin del juego y reiniciar su posición
         knife.addImage(gameOverImage);
         knife.scale=2;
         knife.x=300;
@@ -79,9 +79,9 @@ function draw() {
   }
   
   drawSprites();
-  //Display score
+  //Mostrar puntuación
   textSize(25);
-  text("Score : "+ score,250,50);
+  text("Puntuación : "+ score,250,50);
 }
 
 
@@ -90,7 +90,7 @@ function Monster(){
     monster=createSprite(400,200,20,20);
     monster.addAnimation("moving", monsterImage);
     monster.y=Math.round(random(100,550));
-    //update below give line of code for increase monsterGroup speed by 10
+    //actualizar debajo de la línea de código para aumentar la velocidad de monsterGroup por 10
     monster.velocityX = -8;
     monster.setLifetime=50;
     
@@ -103,12 +103,12 @@ function fruits(){
     position = Math.round(random(1,2));
     fruit=createSprite(400,200,20,20);
     
-     //using random variable change the position of fruit, to make it more challenging
+     //usar la variable random para cambiar la posición de la fruta, para hacerlo más desafiante
     
     if(position==1)
     {
     fruit.x=600;
-    //update below give line of code for increase fruitGroup speed by 4
+    //actualizar la línea de código proporcionada a continuación para aumentar la velocidad de fruitGroup por 4
     fruit.velocityX=-7
     }
     else
@@ -116,7 +116,7 @@ function fruits(){
       if(position==2){
       fruit.x=0;
       
-     //update below give line of code for increase fruitGroup speed by 4
+     //actualizar la línea de código proporcionada a continuación para aumentar la velocidad de fruitGroup por 4
       fruit.velocityX= 7;
       }
     }
