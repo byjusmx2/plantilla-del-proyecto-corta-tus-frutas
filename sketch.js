@@ -1,4 +1,4 @@
-//Game States
+//GameStates (estados del juego)
 var PLAY=1;
 var END=0;
 var gameState=1;
@@ -16,7 +16,7 @@ function preload(){
   fruit4 = loadImage("fruit4.png");
   gameOverImage = loadImage("gameover.png")
 
-  //load sound here
+  //cargar aquí el sonido
 }
 
 
@@ -24,15 +24,15 @@ function preload(){
 function setup() {
   createCanvas(600, 600);
   
-  //creating sword
+  //crear sprite de cuchillo
    knife=createSprite(40,200,20,20);
    knife.addImage(knifeImage);
    knife.scale=0.7
   
-  //set collider for sword
+  //establecer colisionador para el cuchillo
   knife.setCollider("rectangle",0,0,40,40);
 
-  // Score variables and Groups
+  //varianles Score (puntuación) y grupos
   score=0;
   fruitGroup=createGroup();
   monsterGroup=createGroup();
@@ -44,25 +44,25 @@ function draw() {
   
   if(gameState===PLAY){
     
-    //Call fruits and Monster function
+    //llamar la función fruits (frutas) y Monster (monstruo)
     fruits();
     Monster();
     
-    // Move sword with mouse
+    // Mover cuchillo con el mouse
     knife.y=World.mouseY;
     knife.x=World.mouseX;
   
-    // Increase score if sword touching fruit
+    // Incrementar puntuación si el cuchillo toca la fruta
     if(fruitGroup.isTouching(knife)){
       fruitGroup.destroyEach();
     }
     else
     {
-      // Go to end state if sword touching enemy
+      //Cambiar a estado end state si el cuchillo toca al enemigo
       if(monsterGroup.isTouching(knife)){
         gameState=END;
         
-        //add gameover sound here
+        //agregar aquí el sonido de gameover (fin del juego)
         
         fruitGroup.destroyEach();
         monsterGroup.destroyEach();
